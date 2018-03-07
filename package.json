@@ -10,7 +10,7 @@
   "keywords": [
     "three",
     "gltf",
-    "loader",
+    "loader"
   ],
   "dependencies": {
     "three": "^0.90.0"
