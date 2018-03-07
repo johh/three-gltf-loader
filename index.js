@@ -9,7 +9,7 @@
 var THREE = require( 'three' );
 
 
-const _GLTFLoader = ( function () {
+var _GLTFLoader = ( function () {
 
 	function GLTFLoader( manager ) {
 
