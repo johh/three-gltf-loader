@@ -1,0 +1,36 @@
+Arguments: 
+  /usr/bin/node /home/johh/.yarn/bin/yarn.js init
+
+PATH: 
+  /home/johh/.yarn/bin:/home/johh/.config/yarn/global/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  9.5.0
+
+Platform: 
+  linux x64
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: canceled
+      at Interface.<anonymous> (/home/johh/.yarn/lib/cli.js:128791:13)
+      at Interface.emit (events.js:160:13)
+      at Interface._ttyWrite (readline.js:785:16)
+      at ReadStream.onkeypress (readline.js:165:10)
+      at ReadStream.emit (events.js:160:13)
+      at emitKeys (internal/readline.js:420:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (readline.js:1021:36)
+      at ReadStream.emit (events.js:160:13)
+      at addChunk (_stream_readable.js:269:12)
