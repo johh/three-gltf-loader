@@ -13,6 +13,6 @@
     "loader"
   ],
   "dependencies": {
-    "three": "^0.90.0"
+    "three": ">=0.89.0"
   }
 }
