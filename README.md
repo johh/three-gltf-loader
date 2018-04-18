@@ -1,6 +1,6 @@
 # three.js glTF loader
-![three.js version](https://img.shields.io/badge/three.js-v0.91.0-green.svg?style=flat-square) 
-![license](https://img.shields.io/npm/l/three-gltf-loader.svg?style=flat-square) 
+![three.js version](https://img.shields.io/badge/three.js-v0.92.0-green.svg?style=flat-square)
+![license](https://img.shields.io/npm/l/three-gltf-loader.svg?style=flat-square)
 ![Bitbucket issues](https://img.shields.io/bitbucket/issues/johh/three-gltf-loader.svg?style=flat-square)
 
 ## Installation
@@ -12,7 +12,7 @@ npm i --save three-gltf-loader
 ```
 
 ## Description
-three.js's [GLTFLoader](https://threejs.org/docs/#examples/loaders/GLTFLoader) wrapped as a module for easy importing.
+three.js's r92 [GLTFLoader](https://threejs.org/docs/#examples/loaders/GLTFLoader) wrapped as a module for easy importing.
 
 ## Usage
 ```javascript
