@@ -3,7 +3,11 @@
   "version": "0.3.0",
   "description": "three.js GLTFLoader wrapped as a module for easy importing",
   "main": "index.js",
-  "repository": "git@bitbucket.org:JohH/three-gltf-loader.git",
+  "homepage": "https://github.com/j0hh/three-gltf-loader#readme",
+  "repository": {
+  	"type" : "git",
+    "url" : "https://github.com/j0hh/three-gltf-loader.git"
+  },
   "author": "JohH <code@johh.net>",
   "license": "MIT",
   "private": false,
