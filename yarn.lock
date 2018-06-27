@@ -2,6 +2,3 @@
 # yarn lockfile v1
 
 
-three@>=0.89.0:
-  version "0.93.0"
-  resolved "https://registry.yarnpkg.com/three/-/three-0.93.0.tgz#3fd6c367ef4554abbb6e16ad69936283e895c123"
