@@ -13,8 +13,12 @@
   "private": false,
   "keywords": [
     "three",
+    "three.js",
     "gltf",
-    "loader"
+    "gltf2",
+    "loader",
+    "webgl",
+    "es6"
   ],
   "peerDependencies": {
     "three": ">=0.89.0"
