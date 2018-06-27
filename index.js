@@ -22,7 +22,7 @@ var _GLTFLoader = ( function () {
 
 		constructor: GLTFLoader,
 
-		crossOrigin: 'Anonymous',
+		crossOrigin: 'anonymous',
 
 		load: function ( url, onLoad, onProgress, onError ) {
 
@@ -458,7 +458,7 @@ var _GLTFLoader = ( function () {
 	 *
 	 * Specification: https://github.com/KhronosGroup/glTF/pull/874
 	 */
-	function GLTFDracoMeshCompressionExtension ( json, dracoLoader ) {
+	function GLTFDracoMeshCompressionExtension( json, dracoLoader ) {
 
 		if ( ! dracoLoader ) {
 
@@ -484,7 +484,7 @@ var _GLTFLoader = ( function () {
 
 		for ( var attributeName in gltfAttributeMap ) {
 
-			if ( !( attributeName in ATTRIBUTES ) ) continue;
+			if ( ! ( attributeName in ATTRIBUTES ) ) continue;
 
 			threeAttributeMap[ ATTRIBUTES[ attributeName ] ] = gltfAttributeMap[ attributeName ];
 
@@ -497,7 +497,7 @@ var _GLTFLoader = ( function () {
 				var accessorDef = json.accessors[ primitive.attributes[ attributeName ] ];
 				var componentType = WEBGL_COMPONENT_TYPES[ accessorDef.componentType ];
 
-				attributeTypeMap[ ATTRIBUTES[ attributeName ] ]  = componentType;
+				attributeTypeMap[ ATTRIBUTES[ attributeName ] ] = componentType;
 				attributeNormalizedMap[ ATTRIBUTES[ attributeName ] ] = accessorDef.normalized === true;
 
 			}
@@ -854,36 +854,13 @@ var _GLTFLoader = ( function () {
 
 					}
 
-					var offset;
-					var repeat;
+					if ( uvScaleMap.matrixAutoUpdate === true ) {
 
-					if ( uvScaleMap.matrix !== undefined ) {
-
-						// > r88.
-
-						if ( uvScaleMap.matrixAutoUpdate === true ) {
-
-							offset = uvScaleMap.offset;
-							repeat = uvScaleMap.repeat;
-							var rotation = uvScaleMap.rotation;
-							var center = uvScaleMap.center;
-
-							uvScaleMap.matrix.setUvTransform( offset.x, offset.y, repeat.x, repeat.y, rotation, center.x, center.y );
-
-						}
-
-						uniforms.uvTransform.value.copy( uvScaleMap.matrix );
-
-					} else {
-
-						// <= r87. Remove when reasonable.
-
-						offset = uvScaleMap.offset;
-						repeat = uvScaleMap.repeat;
-
-						uniforms.offsetRepeat.value.set( offset.x, offset.y, repeat.x, repeat.y );
+						uvScaleMap.updateMatrix();
 
 					}
+
+					uniforms.uvTransform.value.copy( uvScaleMap.matrix );
 
 				}
 
@@ -937,7 +914,7 @@ var _GLTFLoader = ( function () {
 
 		THREE.Interpolant.call( this, parameterPositions, sampleValues, sampleSize, resultBuffer );
 
-	};
+	}
 
 	GLTFCubicSplineInterpolant.prototype = Object.create( THREE.Interpolant.prototype );
 	GLTFCubicSplineInterpolant.prototype.constructor = GLTFCubicSplineInterpolant;
@@ -969,10 +946,10 @@ var _GLTFLoader = ( function () {
 		//   [ inTangent_1, splineVertex_1, outTangent_1, inTangent_2, splineVertex_2, ... ]
 		for ( var i = 0; i !== stride; i ++ ) {
 
-			var p0 = values[ offset0 + i + stride ];        // splineVertex_k
-			var m0 = values[ offset0 + i + stride2 ] * td;  // outTangent_k * (t_k+1 - t_k)
-			var p1 = values[ offset1 + i + stride ];        // splineVertex_k+1
-			var m1 = values[ offset1 + i ] * td;            // inTangent_k+1 * (t_k+1 - t_k)
+			var p0 = values[ offset0 + i + stride ]; // splineVertex_k
+			var m0 = values[ offset0 + i + stride2 ] * td; // outTangent_k * (t_k+1 - t_k)
+			var p1 = values[ offset1 + i + stride ]; // splineVertex_k+1
+			var m1 = values[ offset1 + i ] * td; // inTangent_k+1 * (t_k+1 - t_k)
 
 			result[ i ] = s0 * p0 + s1 * m0 + s2 * p1 + s3 * m1;
 
@@ -1126,7 +1103,7 @@ var _GLTFLoader = ( function () {
 		WEIGHT: 'skinWeight', // deprecated
 		JOINTS_0: 'skinIndex',
 		JOINT: 'skinIndex' // deprecated
-	}
+	};
 
 	var PATH_PROPERTIES = {
 		scale: 'scale',
@@ -1217,7 +1194,7 @@ var _GLTFLoader = ( function () {
 	/**
 	 * Specification: https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#morph-targets
 	 *
-	 * @param {THREE.Geometry} geometry
+	 * @param {THREE.BufferGeometry} geometry
 	 * @param {Array<GLTF.Target>} targets
 	 * @param {Array<THREE.BufferAttribute>} accessors
 	 */
@@ -1536,7 +1513,7 @@ var _GLTFLoader = ( function () {
 		// BufferGeometry caching
 		this.primitiveCache = [];
 		this.multiplePrimitivesCache = [];
-		this.multiPassGeometryCache = []
+		this.multiPassGeometryCache = [];
 
 		this.textureLoader = new THREE.TextureLoader( this.options.manager );
 		this.textureLoader.setCrossOrigin( this.options.crossOrigin );
@@ -2181,7 +2158,7 @@ var _GLTFLoader = ( function () {
 
 		}
 
-		if ( materialDef.normalTexture !== undefined && materialType !== THREE.MeshBasicMaterial) {
+		if ( materialDef.normalTexture !== undefined && materialType !== THREE.MeshBasicMaterial ) {
 
 			pending.push( parser.assignTexture( materialParams, 'normalMap', materialDef.normalTexture.index ) );
 
@@ -2195,7 +2172,7 @@ var _GLTFLoader = ( function () {
 
 		}
 
-		if ( materialDef.occlusionTexture !== undefined && materialType !== THREE.MeshBasicMaterial) {
+		if ( materialDef.occlusionTexture !== undefined && materialType !== THREE.MeshBasicMaterial ) {
 
 			pending.push( parser.assignTexture( materialParams, 'aoMap', materialDef.occlusionTexture.index ) );
 
@@ -2207,13 +2184,13 @@ var _GLTFLoader = ( function () {
 
 		}
 
-		if ( materialDef.emissiveFactor !== undefined && materialType !== THREE.MeshBasicMaterial) {
+		if ( materialDef.emissiveFactor !== undefined && materialType !== THREE.MeshBasicMaterial ) {
 
 			materialParams.emissive = new THREE.Color().fromArray( materialDef.emissiveFactor );
 
 		}
 
-		if ( materialDef.emissiveTexture !== undefined && materialType !== THREE.MeshBasicMaterial) {
+		if ( materialDef.emissiveTexture !== undefined && materialType !== THREE.MeshBasicMaterial ) {
 
 			pending.push( parser.assignTexture( materialParams, 'emissiveMap', materialDef.emissiveTexture.index ) );
 
@@ -2273,7 +2250,7 @@ var _GLTFLoader = ( function () {
 			var bufferAttribute = accessors[ attributes[ gltfAttributeName ] ];
 
 			// Skip attributes already provided by e.g. Draco extension.
-			if ( !threeAttributeName ) continue;
+			if ( ! threeAttributeName ) continue;
 			if ( threeAttributeName in geometry.attributes ) continue;
 
 			geometry.addAttribute( threeAttributeName, bufferAttribute );
@@ -2511,7 +2488,7 @@ var _GLTFLoader = ( function () {
 
 					var mesh;
 
-					var material = isMultiMaterial ? originalMaterials : originalMaterials[ i ]
+					var material = isMultiMaterial ? originalMaterials : originalMaterials[ i ];
 
 					if ( primitive.mode === WEBGL_CONSTANTS.TRIANGLES ||
 						primitive.mode === WEBGL_CONSTANTS.TRIANGLE_STRIP ||
@@ -2595,7 +2572,7 @@ var _GLTFLoader = ( function () {
 								THREE.Material.prototype.copy.call( pointsMaterial, material );
 								pointsMaterial.color.copy( material.color );
 								pointsMaterial.map = material.map;
-								pointsMaterial.lights = false;  // PointsMaterial doesn't support lights yet
+								pointsMaterial.lights = false; // PointsMaterial doesn't support lights yet
 
 								scope.cache.add( cacheKey, pointsMaterial );
 
@@ -2614,7 +2591,7 @@ var _GLTFLoader = ( function () {
 								lineMaterial = new THREE.LineBasicMaterial();
 								THREE.Material.prototype.copy.call( lineMaterial, material );
 								lineMaterial.color.copy( material.color );
-								lineMaterial.lights = false;  // LineBasicMaterial doesn't support lights yet
+								lineMaterial.lights = false; // LineBasicMaterial doesn't support lights yet
 
 								scope.cache.add( cacheKey, lineMaterial );
 
@@ -2641,8 +2618,8 @@ var _GLTFLoader = ( function () {
 							if ( ! cachedMaterial ) {
 
 								cachedMaterial = material.isGLTFSpecularGlossinessMaterial
-										? extensions[ EXTENSIONS.KHR_MATERIALS_PBR_SPECULAR_GLOSSINESS ].cloneMaterial( material )
-										: material.clone();
+									? extensions[ EXTENSIONS.KHR_MATERIALS_PBR_SPECULAR_GLOSSINESS ].cloneMaterial( material )
+									: material.clone();
 
 								if ( useSkinning ) cachedMaterial.skinning = true;
 								if ( useVertexColors ) cachedMaterial.vertexColors = THREE.VertexColors;
