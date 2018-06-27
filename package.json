@@ -16,7 +16,7 @@
     "gltf",
     "loader"
   ],
-  "dependencies": {
+  "peerDependencies": {
     "three": ">=0.89.0"
   }
 }
