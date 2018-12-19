@@ -13,7 +13,7 @@ npm i --save three-gltf-loader
 ```
 
 ## Description
-three.js's r99 [GLTFLoader](https://threejs.org/docs/#examples/loaders/GLTFLoader) wrapped as a module for easy importing.
+three.js's r99 [GLTFLoader](https://threejs.org/docs/#examples/loaders/GLTFLoader) wrapped as a module for easy importing, [TypeScript type definitions](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/three/three-gltfloader.d.ts) included.
 
 ## Usage
 ```javascript
@@ -26,4 +26,6 @@ For further documentation, see [the GLTFLoader docs](https://threejs.org/docs/#e
 
 ## Reporting Issues
 Please note that this is just a wrapper for the [glTF loader provided by three.js](https://github.com/mrdoob/three.js/blob/master/examples/js/loaders/GLTFLoader.js). Therefore, any issues regarding the loader should be reported directly via the [three.js issue tracker](https://github.com/mrdoob/three.js/issues/).
+TypeScript definitions are provided by the [official three package on DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/three).
+
 For issues directly related to the wrapper or this package specifically, feel free to contact me.

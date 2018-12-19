@@ -18,7 +18,9 @@
     "gltf2",
     "loader",
     "webgl",
-    "es6"
+    "es6",
+    "ts",
+    "typescript"
   ],
   "peerDependencies": {
     "three": ">=0.89.0"
