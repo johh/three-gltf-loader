@@ -21,6 +21,21 @@ import * as THREE from 'three';
 import GLTFLoader from 'three-gltf-loader';
 
 const loader = new GLTFLoader();
+loader.load(
+	'path/to/your/file.gltf',
+	( gltf ) => {
+		// called when the resource is loaded
+		scene.add( gltf.scene );
+	},
+	( xhr ) => {
+		// called while loading is progressing
+		console.log( `${( xhr.loaded / xhr.total * 100 )}% loaded` );
+	},
+	( error ) => {
+		// called when loading has errors
+		console.error( 'An error happened', error );
+	},
+);
 ```
 For further documentation, see [the GLTFLoader docs](https://threejs.org/docs/#examples/loaders/GLTFLoader).
 
