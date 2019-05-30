@@ -18,9 +18,9 @@ declare module 'three-gltf-loader' {
 		load(url: string, onLoad: (gltf: GLTF) => void, onProgress?: (event: ProgressEvent) => void, onError?: (event: ErrorEvent) => void): void;
 		setPath(path: string): GLTFLoader;
 		setResourcePath(path: string): GLTFLoader;
-		setCrossOrigin(value: string): void;
-		setDRACOLoader(dracoLoader: object): void;
-		parse(data: ArrayBuffer, path: string, onLoad: (gltf: GLTF) => void, onError?: (event: ErrorEvent) => void): void;
+		setCrossOrigin(value: string): GLTFLoader;
+		setDRACOLoader(dracoLoader: object): GLTFLoader;
+		parse(data: ArrayBuffer | string, path: string, onLoad: (gltf: GLTF) => void, onError?: (event: ErrorEvent) => void): void;
 
 	}
 
