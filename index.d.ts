@@ -1,5 +1,5 @@
 declare module 'three-gltf-loader' {
-	import { AnimationClip, Camera, LoadingManager, Scene } from 'three';
+	import { AnimationClip, Camera, Loader, LoadingManager, Scene } from 'three';
 	import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
 	import { DDSLoader } from 'three/examples/jsm/loaders/DDSLoader';
 
@@ -11,23 +11,16 @@ declare module 'three-gltf-loader' {
 		asset: object;
 	}
 
-	class GLTFLoader {
+	class GLTFLoader extends Loader {
 
-		constructor(manager?: LoadingManager);
-		manager: LoadingManager;
+		constructor( manager?: LoadingManager );
 		dracoLoader: DRACOLoader | null;
 		ddsLoader: DDSLoader | null;
-		path: string;
-		crossOrigin: string;
-		resourcePath: string;
 
-		load(url: string, onLoad: (gltf: GLTF) => void, onProgress?: (event: ProgressEvent) => void, onError?: (event: ErrorEvent) => void): void;
-		setPath(path: string): GLTFLoader;
-		setResourcePath(path: string): GLTFLoader;
-		setCrossOrigin(value: string): GLTFLoader;
-		setDRACOLoader(dracoLoader: DRACOLoader): GLTFLoader;
-		setDDSLoader(ddsLoader: DDSLoader): GLTFLoader;
-		parse(data: ArrayBuffer | string, path: string, onLoad: (gltf: GLTF) => void, onError?: (event: ErrorEvent) => void): void;
+		load( url: string, onLoad: ( gltf: GLTF ) => void, onProgress?: ( event: ProgressEvent ) => void, onError?: ( event: ErrorEvent ) => void ) : void;
+		setDRACOLoader( dracoLoader: DRACOLoader ): GLTFLoader;
+		setDDSLoader( ddsLoader: DDSLoader ): GLTFLoader;
+		parse( data: ArrayBuffer | string, path: string, onLoad: ( gltf: GLTF ) => void, onError?: ( event: ErrorEvent ) => void ) : void;
 
 	}
 
