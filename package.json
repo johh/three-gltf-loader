@@ -1,6 +1,6 @@
 {
   "name": "three-gltf-loader",
-  "version": "1.109.0",
+  "version": "1.110.0",
   "description": "three.js GLTFLoader wrapped as a module for easy importing",
   "main": "index.js",
   "homepage": "https://github.com/johh/three-gltf-loader#readme",
