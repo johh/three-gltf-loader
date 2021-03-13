@@ -12,7 +12,7 @@ It can be accessed via
 ```javascript
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 ```
-However, this package will still be maintained.
+This package will no longer be maintained.
 
 
 ## Installation
